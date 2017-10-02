@@ -14,3 +14,10 @@ FileReader.prototype.sortWordFrequency = function(wordArray) {
     this.wordFrequency[num] = this.wordFrequency[num] ? this.wordFrequency[num] + 1 : 1;
   }
 }
+
+FileReader.prototype.checkPrime = function(number) {
+  for(var i = 2; i < number; i++)
+    if(number % i === 0) return false;
+  return number !== 1;
+
+}

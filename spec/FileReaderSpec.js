@@ -23,4 +23,16 @@ describe("FileReader", () => {
       expect(filereader.wordFrequency).toEqual({greetings: 2, i: 3, am: 2, olaf: 2, and: 1, say: 1})
     });
   });
+
+  describe("Can check if Prime number", function(){
+    it('return true if number is prime', function(){
+      expect(filereader.checkPrime(29)).toBe(true)
+    });
+  });
+
+  describe("Can check if not a prime number", function (){
+    it('returns false if number is not a prime', function (){
+      expect(filereader.checkPrime(4)).toBe(false)
+    });
+  });
 });
