@@ -1,0 +1,52 @@
+<div id="page-wrapper">
+
+		<h1>Text File Reader</h1>
+		<div>
+			Select a text file:
+			<input type="file" id="fileInput">
+		</div>
+    <input type="button" id="evaluate" value="Evaluate text" onclick="readText();"/>
+    <pre id="wordOccurance"></pre>
+    <pre id="primeOccurance"></pre>
+		<pre id="fileDisplayArea"><pre>
+
+	</div>
+  <script src="src/FileReader.js"></script>
+  <script type="text/javascript">
+  window.onload = function() {
+  var fileInput = document.getElementById('fileInput');
+  var fileDisplayArea = document.getElementById('fileDisplayArea');
+
+  fileInput.addEventListener('change', function(e) {
+    var file = fileInput.files[0];
+    var textType = /text.*/;
+
+    if (file.type.match(textType)) {
+      var reader = new FileReader();
+
+      reader.onload = function(e) {
+        fileDisplayArea.innerText = reader.result;
+      }
+
+      reader.readAsText(file);
+
+    } else {
+      fileDisplayArea.innerText = "File not supported!"
+    }
+  });
+}
+readText = () =>{
+var fileReader = new TextFileReader()
+var fileDisplayArea = document.getElementById('fileDisplayArea');
+var wordOccuranceArea = document.getElementById('wordDisplayArea')
+  fileReader.fileWordOccurances(fileDisplayArea.innerText)
+  fileReader.sortWordFrequency(fileDisplayArea.innerText)
+  fileReader.checkPrimeFrequency()
+  console.log(fileReader.wordStore)
+  console.log(fileReader.wordFrequency)
+  console.log(fileReader.primeNumberFrequency)
+
+  wordOccurance.innerHTML = fileReader.wordStore
+  primeOccurance.innerHTML = fileReader.primeNumberFrequency
+}
+  </script>
