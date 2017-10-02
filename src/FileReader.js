@@ -6,7 +6,7 @@ function TextFileReader() {
 
 // Format input to store words in an array
 TextFileReader.prototype.fileWordOccurances = function(file) {
-  this.wordStore = file.toString().toLowerCase().replace(/[\n\r]/g, "").replace(/[^a-z\s]+/gi,'').split(" ").sort().filter(function(entry) { return entry.trim() != ''; });
+  this.wordStore = file.toString().toLowerCase().replace(/[\n\r]/g, ' ').replace(/[^a-z\s]+/gi,' ').split(" ").sort().filter(function(entry) { return entry.trim() != ''; });
 }
 
 TextFileReader.prototype.sortWordFrequency = function(wordArray) {
