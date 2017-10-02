@@ -7,20 +7,20 @@ function TextFileReader() {
 // Format input to store words in an array
 TextFileReader.prototype.fileWordOccurances = function(file) {
   this.wordStore = file.toString().toLowerCase().replace(/[\n\r]/g, ' ').replace(/[^a-z\s]+/gi,' ').split(" ").sort().filter(function(entry) { return entry.trim() != ''; });
-}
+};
 
 TextFileReader.prototype.sortWordFrequency = function(wordArray) {
   for (var i = 0; i < wordArray.length; i++) {
-    var num = wordArray[i];
-    this.wordFrequency[num] = this.wordFrequency[num] ? this.wordFrequency[num] + 1 : 1;
-  }
-}
+    var word = wordArray[i];
+    this.wordFrequency[word] = this.wordFrequency[word] ? this.wordFrequency[word] + 1 : 1;
+  };
+};
 
 TextFileReader.prototype.checkPrime = function(number) {
   for(var i = 2; i < number; i++)
     if(number % i === 0) return false;
   return number !== 1;
-}
+};
 
 TextFileReader.prototype.checkPrimeFrequency = function(){
   var fileRead = this;
@@ -29,5 +29,5 @@ TextFileReader.prototype.checkPrimeFrequency = function(){
     var checkIfPrime = fileRead.checkPrime(wordFrequency);
     var result = [wordFrequency, checkIfPrime]
     fileRead.primeNumberFrequency[key] = result;
-  })
-}
+  });
+};

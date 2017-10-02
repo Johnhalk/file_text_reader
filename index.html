@@ -6,6 +6,7 @@
 			<input type="file" id="fileInput">
 		</div>
     <input type="button" id="evaluate" value="Evaluate text" onclick="readText();"/>
+    <pre id="wordLength"></pre>
     <pre id="wordOccurance"></pre>
     <pre id="primeOccurance"></pre>
 		<pre id="fileDisplayArea"><pre>
@@ -38,15 +39,15 @@
 readText = () =>{
 var fileReader = new TextFileReader()
 var fileDisplayArea = document.getElementById('fileDisplayArea');
-var wordOccuranceArea = document.getElementById('wordDisplayArea')
   fileReader.fileWordOccurances(fileDisplayArea.innerText)
-  fileReader.sortWordFrequency(fileDisplayArea.innerText)
+  fileReader.sortWordFrequency(fileReader.wordStore)
   fileReader.checkPrimeFrequency()
   console.log(fileReader.wordStore)
   console.log(fileReader.wordFrequency)
   console.log(fileReader.primeNumberFrequency)
 
-  wordOccurance.innerHTML = fileReader.wordStore
-  primeOccurance.innerHTML = fileReader.primeNumberFrequency
+  wordLength.innerText = "length: " +fileReader.wordStore.length + " words"
+  wordOccurance.innerText = Object.keys(fileReader.primeNumberFrequency)
+  primeOccurance.innerText = Object.values(fileReader.primeNumberFrequency)
 }
   </script>
