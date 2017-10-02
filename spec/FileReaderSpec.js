@@ -1,7 +1,7 @@
 describe("FileReader", () => {
 
   beforeEach( () =>{
-     fileReader = new FileReader();
+     fileReader = new TextFileReader();
   });
 
   describe("Default FileReader", () =>{
@@ -37,9 +37,9 @@ describe("FileReader", () => {
   });
 
   describe("Can check if word occurance is prime number", function (){
-    it('returns a hash of key value pairs determining if occurance is prime or not', function(){
+    it('returns a hash of key value pairs determining if word occurance is prime or not', function(){
       FileReaderHelper()
-      expect(fileReader.primeNumberFrequency).toEqual({    am: [ 1, false ], hello: [ 4, false ], i: [ 1, false ], is: [ 1, false ], meerkat: [ 2, true ], my: [ 1, false ], name: [ 1, false ], olaf: [ 2, true ], the: [ 2, true ]});
+      expect(fileReader.primeNumberFrequency).toEqual({am: [ 1, false ], hello: [ 4, false ], i: [ 1, false ], is: [ 1, false ], meerkat: [ 2, true ], my: [ 1, false ], name: [ 1, false ], olaf: [ 2, true ], the: [ 2, true ]});
     });
   });
 });
