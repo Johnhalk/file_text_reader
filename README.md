@@ -74,7 +74,7 @@ Built with:
 ## Clicking the 'choose file' button will prompt user to enter a locally stored file.
 ![Imgur](https://imgur.com/ejvdb1N.png)
 
-## Choosing a file that is not a text file will prompt user with the error "File not supported!"
+## Choosing a file that is not a text file will prompt user with the error File not supported!.
 ![Imgur](https://imgur.com/YmtlNTj.png)
 
 ## Choosing a text file will have it rendered on the page for the user to view.
