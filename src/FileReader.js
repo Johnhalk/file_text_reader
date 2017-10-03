@@ -50,6 +50,7 @@ TextFileReader.prototype.sortPrimes = function() {
     fileRead.primeStore.push(fileRead.checkPrime(fileRead.wordFrequencyStore[i]))
   }
 }
+
 // Creates final results of each word, frequency and if prime number or not
 TextFileReader.prototype.createFinalResults = function () {
   var fileRead = this;
@@ -58,12 +59,11 @@ TextFileReader.prototype.createFinalResults = function () {
   }
 }
 
+// Runs all functions to read a text file properly
 TextFileReader.prototype.runTextReader = function (filetext) {
   this.fileWordOccurances(filetext)
   this.sortWordFrequency(this.allWords)
   this.sortWords()
   this.sortFrequency()
   this.sortPrimes()
-  this.createFinalResults()
-
 }
