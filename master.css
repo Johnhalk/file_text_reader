@@ -1,0 +1,79 @@
+#page-wrapper{
+  font-family: verdana, arial, sans-serif;
+
+}
+
+#fileInput{
+  background-color: white;
+  color: black;
+  font-size: 16px;
+  margin: 5px;
+  padding: 10px;
+
+}
+
+#parent {
+  display: flex;
+  font-family: verdana, arial, sans-serif;
+  font-size: 11px;
+  color: #333333;
+  border-width: 1px;
+  border-color: #3A3A3A;
+  border-collapse: collapse;
+
+}
+
+#WordTitle, #FrequencyTitle {
+  width: 200px;
+  border-width: 1px;
+  padding: 8px;
+  border-style: solid;
+  border-color: #FFA6A6;
+  background-color: #D56A6A;
+  color: #ffffff;
+
+}
+
+#PrimeTitle {
+  width: 200px;
+  border-width: 1px;
+  padding: 8px;
+  border-style: solid;
+  border-color: #FFA6A6;
+  background-color: #D56A6A;
+  color: #ffffff;
+
+}
+#Word, #Frequency {
+  width: 200px;
+  border-width: 1px;
+  padding: 8px;
+  border-style: solid;
+  border-color: #FFA6A6;
+  background-color: #ffffff;
+}
+
+#Prime {
+  width: 200px;
+  border-width: 1px;
+  padding: 8px;
+  border-style: solid;
+  border-color: #FFA6A6;
+  background-color: #ffffff;
+}
+
+
+#evaluate{
+  background-color: white;
+  color: black;
+  border: 2px solid #555555;
+  font-size: 16px;
+  margin: 5px;
+  padding: 10px;
+
+}
+
+#evaluate:hover {
+    background-color: #555555;
+    color: white;
+}
