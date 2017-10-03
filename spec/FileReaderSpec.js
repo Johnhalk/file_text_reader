@@ -4,7 +4,7 @@ describe("FileReader", () => {
      fileReader = new TextFileReader();
   });
 
-  describe("Default FileReader", () =>{
+  describe("On initialisation", () =>{
     it('is empty upon creation', () =>{
       expect(fileReader.allWords).toEqual([])
       expect(fileReader.wordFrequency).toEqual({})
@@ -16,14 +16,19 @@ describe("FileReader", () => {
     });
   });
 
-  describe("Reading words", function(){
+  describe("#fileWordOccurances", function(){
     it('can read individual words', function (){
       fileReader.fileWordOccurances("Hello i am olaf the meerkat, hello hello hello, my name is olaf the meerkat")
       expect(fileReader.allWords).toEqual([ 'am', 'hello', 'hello', 'hello', 'hello', 'i', 'is', 'meerkat', 'meerkat', 'my', 'name', 'olaf', 'olaf', 'the', 'the'])
     });
+    it('removes white space or unusual characters', function(){
+      fileReader.fileWordOccurances("Meerkats             are ()// awesome         ")
+      expect(fileReader.allWords).toEqual([ 'are', 'awesome', 'meerkats' ])
+
+    })
   });
 
-  describe("Sorting words into frequency", function(){
+  describe("#sortWordFrequency", function(){
     it('can sort words and show how often they occur', function(){
       fileReader.fileWordOccurances(["Hello i am olaf the meerkat, hello hello hello, my name is olaf the meerkat"])
       fileReader.sortWordFrequency(fileReader.allWords)
@@ -31,40 +36,38 @@ describe("FileReader", () => {
     });
   });
 
-  describe("Can sort each type of word", function(){
+  describe("#sortWords", function(){
     it('returns an array full of each type of word', function(){
       sortWordHelper()
       expect(fileReader.wordStore).toContain('am', 'hello', 'i', 'is', 'meerkat', 'my', 'name', 'olaf', 'the')
     });
   });
 
-  describe("Can sort frequency of each type of word", function(){
+  describe("#sortFrequency", function(){
     it('returns array full of frequencies to the corresponding word', function(){
       sortFrequencyHelper()
       expect(fileReader.wordFrequencyStore).toEqual([1, 4, 1, 1, 2, 1, 1, 2, 2])
     });
   });
 
-  describe("Can check if Prime number", function(){
+  describe("#checkPrime", function(){
     it('return true if number is prime', function(){
       expect(fileReader.checkPrime(29)).toBe(true)
     });
-  });
-
-  describe("Can check if not a prime number", function (){
-    it('returns false if number is not a prime', function (){
-      expect(fileReader.checkPrime(4)).toBe(false)
+      it('returns false if number is not a prime', function (){
+        expect(fileReader.checkPrime(4)).toBe(false)
+      });
     });
-  });
 
-  describe("Can sort occurance numbers into array", function(){
+
+  describe("#sortPrimes", function(){
     it('sorts occurance numbers', function(){
       sortPrimesHelper()
       expect(fileReader.primeStore).toEqual([false, false, false, false, true, false, false, true, true])
     });
   });
 
-  describe("Can sort all data into one array", function(){
+  describe("#createFinalResults", function(){
     it('pushes each individual store data into one single array', function(){
       createFinalResults()
       expect(fileReader.finalResults).toEqual([ [ 'am', 1, false ], [ 'hello', 4, false ], [ 'i', 1, false ], [ 'is', 1, false ], [ 'meerkat', 2, true ], [ 'my', 1, false ], [ 'name', 1, false ], [ 'olaf', 2, true ], [ 'the', 2, true ] ])
