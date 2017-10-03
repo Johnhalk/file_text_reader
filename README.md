@@ -55,7 +55,7 @@ Built with:
 
 ## Usage
 
-- Download and save a text file to use locally.
+- Download and save a text file to use locally - May I suggest the DOS 6 tips & trips? An instant classic - right click and save here -> https://textfiles.com/computers/dos6tips.txt.
 - Load index.html page into browser ```open index.html ```
 - Click "Choose file" button.
 - Search locally hosted text files and choose which to upload.
