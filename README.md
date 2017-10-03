@@ -63,28 +63,28 @@ Built with:
 - **NOTE** Large text files do take awhile to evaluate but do evaluate so be patient and wait. Best tested on small text files to see functionality.
 
 ## Testing
-Tests ran in SpecRunner.html written in Jasmine.
+## Tests ran in SpecRunner.html written in Jasmine.
 ![Imgur](https://imgur.com/EMbmmoo.png)
 
 ## Screenshots
-Opening the index.html page renders the interface.
+## Opening the index.html page renders the interface.
 
 ![Imgur](https://imgur.com/OdJb3Mz.png)
 
-Clicking the 'choose file' button will prompt user to enter a locally stored file.
+## Clicking the 'choose file' button will prompt user to enter a locally stored file.
 ![Imgur](https://imgur.com/ejvdb1N.png)
 
-Choosing a file that is not a text file will prompt user with the error "File not supported!"
+## Choosing a file that is not a text file will prompt user with the error "File not supported!"
 ![Imgur](https://imgur.com/YmtlNTj.png)
 
-Choosing a text file will have it rendered on the page for the user to view.
+## Choosing a text file will have it rendered on the page for the user to view.
 ![Imgur](https://imgur.com/t5IiRAs.png)
 
-After clicking the "Evaluate text" button it displays list of words used, their frequency and if frequency is prime number
+## After clicking the "Evaluate text" button it displays list of words used, their frequency and if frequency is prime number
 
 ![Imgur](https://imgur.com/EOJhT8e.png)
 
-Screenshot to show end of word list for Railway children when text file loaded and evaluated.
+## Screenshot to show end of word list for Railway children when text file loaded and evaluated.
 
 ![Imgur](https://imgur.com/wdgts25.png)
 
