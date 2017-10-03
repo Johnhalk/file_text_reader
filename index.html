@@ -21,16 +21,12 @@
   fileInput.addEventListener('change', function(e) {
     var file = fileInput.files[0];
     var textType = /text.*/;
-
     if (file.type.match(textType)) {
       var reader = new FileReader();
-
       reader.onload = function(e) {
         fileDisplayArea.innerText = reader.result;
       }
-
       reader.readAsText(file);
-
     } else {
       fileDisplayArea.innerText = "File not supported!"
     }
@@ -40,14 +36,27 @@ readText = () =>{
 var fileReader = new TextFileReader()
 var fileDisplayArea = document.getElementById('fileDisplayArea');
   fileReader.fileWordOccurances(fileDisplayArea.innerText)
-  fileReader.sortWordFrequency(fileReader.wordStore)
-  fileReader.checkPrimeFrequency()
-  console.log(fileReader.wordStore)
+  fileReader.sortWordFrequency(fileReader.allWords)
+  fileReader.sortWords()
+  fileReader.sortFrequency()
+  fileReader.sortPrimes()
+  fileReader.createFinalResults()
+  console.log(fileReader.allWords)
   console.log(fileReader.wordFrequency)
-  console.log(fileReader.primeNumberFrequency)
+  console.log("Break one")
+  console.log(fileReader.wordFrequency)
+  console.log(Object.keys(fileReader.wordFrequency))
+  console.log(fileReader.wordStore)
+  console.log("Break two")
+  console.log(fileReader.wordFrequencyStore)
+  console.log(fileReader.primeStore)
+  console.log("Break three")
 
-  wordLength.innerText = "length: " +fileReader.wordStore.length + " words"
-  wordOccurance.innerText = Object.keys(fileReader.primeNumberFrequency)
-  primeOccurance.innerText = Object.values(fileReader.primeNumberFrequency)
+  console.log(fileReader.finalResults)
+  console.log(fileReader.finalResults[0])
+
+
+  wordLength.innerText = "length: " + Object.keys(fileReader.wordFrequency).length + " words"
+  wordOccurance.innerText = fileReader.finalResults[0]
 }
   </script>
