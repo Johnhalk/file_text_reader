@@ -2,56 +2,53 @@
   <title> Text File Reader </title>
   <link rel="stylesheet" href="master.css">
 </head>
-<div id="page-wrapper">
-		<h1>Text File Reader</h1>
-		<div id="intro">
-			Select a text file:
-			<input type="file" id="fileInput">
-		</div>
-    <input type="button" id="evaluate" value="Evaluate text" onclick="readText();"/>
-    <pre id="wordLength"></pre>
-      <div id='parent'>
-            <pre id='WordTitle'> Word: </pre>
-            <pre id='FrequencyTitle'> Frequency: </pre>
-            <pre id='PrimeTitle'> Prime number? </pre>
-      </div>
-        <pre id="wordType"></pre>
-    <pre id="fileDisplayArea"><pre>
-
-	</div>
-  <script src="src/FileReader.js"></script>
-  <script type="text/javascript">
+<script src="src/FileReader.js"></script>
+<script type="text/javascript">
   window.onload = function() {
-  var fileInput = document.getElementById('fileInput');
-  var fileDisplayArea = document.getElementById('fileDisplayArea');
+    var fileInput = document.getElementById('fileInput');
+    var fileDisplayArea = document.getElementById('fileDisplayArea');
 
-  fileInput.addEventListener('change', function(e) {
-    var file = fileInput.files[0];
-    var textType = /text.*/;
-    if (file.type.match(textType)) {
-      var reader = new FileReader();
-      reader.onload = function(e) {
-        fileDisplayArea.innerText = reader.result;
-      }
-      reader.readAsText(file);
-    } else {
-      fileDisplayArea.innerText = "File not supported!"
-    }
-  });
-}
-readText = () =>{
-var fileReader = new TextFileReader()
-var fileDisplayArea = document.getElementById('fileDisplayArea');
-  fileReader.fileWordOccurances(fileDisplayArea.innerText)
-  fileReader.sortWordFrequency(fileReader.allWords)
-  fileReader.sortWords()
-  fileReader.sortFrequency()
-  fileReader.sortPrimes()
-  fileReader.createFinalResults()
-
-  document.getElementById('wordLength').innerHTML ="length: " + Object.keys(fileReader.wordFrequency).length + " words"
-  for (var i=0; i < fileReader.wordFrequencyStore.length; i++){
-    document.getElementById('wordType').innerHTML +='<div id=\'\parent\'\><div id=\'\Word\'\>'+ fileReader.wordStore[i]+'</div><div id=\'\Frequency\'\>' + fileReader.wordFrequencyStore[i] +'</div><div id=\'\Prime\'\>' + fileReader.primeStore[i]+'</div></div>'
+    fileInput.addEventListener('change', function(e) {
+      var file = fileInput.files[0];
+      var textType = /text.*/;
+      if (file.type.match(textType)) {
+        var reader = new FileReader();
+        reader.onload = function(e) {
+          fileDisplayArea.innerText = reader.result;
+        }
+          reader.readAsText(file);
+        } else {
+          fileDisplayArea.innerText = "File not supported!"
+        }
+      });
   }
-}
-  </script>
+
+  readText = () =>{
+    var fileReader = new TextFileReader()
+    var fileDisplayArea = document.getElementById('fileDisplayArea');
+    fileReader.runTextReader(fileDisplayArea.innerText)
+    document.getElementById('wordLength').innerHTML ="length: " + Object.keys(fileReader.wordFrequency).length + " words"
+    for (var i=0; i < fileReader.wordFrequencyStore.length; i++){
+      document.getElementById('wordType').innerHTML +='<div id=\'\parent\'\><div id=\'\Word\'\>'+ fileReader.wordStore[i]+'</div><div id=\'\Frequency\'\>' + fileReader.wordFrequencyStore[i] +'</div><div id=\'\Prime\'\>' + fileReader.primeStore[i]+'</div></div>'
+    }
+  }
+</script>
+
+<body>
+  <div id="page-wrapper">
+  		<h1>Text File Reader</h1>
+  		<div id="intro">
+  			Select a text file:
+  			<input type="file" id="fileInput">
+  		</div>
+      <input type="button" id="evaluate" value="Evaluate text" onclick="readText();"/>
+      <pre id="wordLength"></pre>
+        <div id='parent'>
+          <pre id='WordTitle'> Word: </pre>
+          <pre id='FrequencyTitle'> Frequency: </pre>
+          <pre id='PrimeTitle'> Prime number? </pre>
+        </div>
+        <pre id="wordType"></pre>
+        <pre id="fileDisplayArea"><pre>
+  </div>
+</body>

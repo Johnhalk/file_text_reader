@@ -57,3 +57,13 @@ TextFileReader.prototype.createFinalResults = function () {
     fileRead.finalResults.push([fileRead.wordStore[i], fileRead.wordFrequencyStore[i], fileRead.primeStore[i]])
   }
 }
+
+TextFileReader.prototype.runTextReader = function (filetext) {
+  this.fileWordOccurances(filetext)
+  this.sortWordFrequency(this.allWords)
+  this.sortWords()
+  this.sortFrequency()
+  this.sortPrimes()
+  this.createFinalResults()
+
+}

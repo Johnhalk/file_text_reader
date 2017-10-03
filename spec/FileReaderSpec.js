@@ -71,6 +71,18 @@ describe("FileReader", () => {
     it('pushes each individual store data into one single array', function(){
       createFinalResults()
       expect(fileReader.finalResults).toEqual([ [ 'am', 1, false ], [ 'hello', 4, false ], [ 'i', 1, false ], [ 'is', 1, false ], [ 'meerkat', 2, true ], [ 'my', 1, false ], [ 'name', 1, false ], [ 'olaf', 2, true ], [ 'the', 2, true ] ])
-    })
-  })
+    });
+  });
+
+  describe("#runTextReader", function () {
+    it('runs programme filtering words, frequencies and prime number evaluation', function(){
+      fileReader.runTextReader("Hello i am olaf the meerkat, hello hello hello, my name is olaf the meerkat")
+      expect(fileReader.allWords).toEqual([ 'am', 'hello', 'hello', 'hello', 'hello', 'i', 'is', 'meerkat', 'meerkat', 'my', 'name', 'olaf', 'olaf', 'the', 'the'])
+      expect(fileReader.wordFrequency).toEqual({ am: 1, hello: 4, i: 1, is: 1, meerkat: 2, my: 1, name: 1, olaf: 2, the: 2 })
+      expect(fileReader.wordFrequencyStore).toEqual([1, 4, 1, 1, 2, 1, 1, 2, 2])
+      expect(fileReader.wordStore).toContain('am', 'hello', 'i', 'is', 'meerkat', 'my', 'name', 'olaf', 'the')
+      expect(fileReader.primeStore).toEqual([false, false, false, false, true, false, false, true, true])
+      expect(fileReader.finalResults).toEqual([ [ 'am', 1, false ], [ 'hello', 4, false ], [ 'i', 1, false ], [ 'is', 1, false ], [ 'meerkat', 2, true ], [ 'my', 1, false ], [ 'name', 1, false ], [ 'olaf', 2, true ], [ 'the', 2, true ] ])
+    });
+  });
 });
